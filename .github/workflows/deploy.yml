@@ -29,14 +29,16 @@ jobs:
  
       # Build & tests Maven
       - name: Build with Maven
-        run: mvn clean verify
+        run: |
+          cd demo
+          mvn clean verify
  
       # Upload du JAR comme artefact
       - name: Upload JAR artifact
         uses: actions/upload-artifact@v4
         with:
           name: springboot-jar
-          path: target/*.jar
+          path: demo/target/*.jar
  
   docker:
     name: Build Docker Image
@@ -52,7 +54,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: springboot-jar
-          path: target
+          path: demo/target
  
       - name: Build Docker image
         run: docker build -t springboot-app:latest .
