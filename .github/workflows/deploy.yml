@@ -29,9 +29,9 @@ jobs:
  
       # Build & tests Maven
       - name: Build with Maven
-       run: |
-        cd demo
-        mvn clean verify
+         run: |
+          cd demo
+          mvn clean verify
  
       # Upload du JAR comme artefact
       - name: Upload JAR artifact
