@@ -54,7 +54,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: springboot-jar
-          path: target
+          path: demo/target/
  
       - name: Build Docker image
         run: docker build -t springboot-app:latest .
